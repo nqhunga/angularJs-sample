@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html >
+<head>
+<title>Welcome to Hung's angular app!</title>
+<link rel="stylesheet" href="css/style.css" tyle="text/css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+</head>
+<body ng-app="myApp" ng-controller="Business-Card">
+
+	<div class="container">
+
+
+			<div class="show-editor">
+				<button class="showEditor btn btn-outline-primary" type="button" ng-click="showForm()" ng-model="buttonShow" style="margin-bottom:2em;">Click here!</button>
+				<div class="editor" ng-show="showIt" >
+					 <form ng-submit="addNew()" >
+						 <div class="form-group">
+						 	<input class="form-control" type="text" placeholder="First name" ng-model="newcustomer.first_name" required>
+						 </div>
+
+						 <div class="form-group">
+ 						 <input class="form-control" type="text" placeholder="Last name" ng-model="newcustomer.last_name" required>
+ 						</div>
+
+						<div class="form-check form-check-inline">
+							<label class="form-check-label" for="">
+								<input name="cus-gender" class="form-check-input" type="radio" ng-model="newcustomer.gender" value="Mr" required>Mr
+							</label>
+						</div>
+
+						<div class="form-check form-check-inline">
+							<label class="form-check-label" for="">
+								<input name="cus-gender" class="form-check-input" type="radio" ng-model="newcustomer.gender" value="Ms/Mrs" >Mrs/Ms
+							</label>
+						</div>
+
+						<div class="form-group">
+						 <input class="form-control" type="text" placeholder="Title" ng-model="newcustomer.title" required>
+						</div>
+
+						<div class="form-group">
+						 <input class="form-control" type="text" placeholder="Company" ng-model="newcustomer.company" required>
+						</div>
+						<button type="submit" class="btn btn-outline-success" >Add new customer</button>
+
+
+
+					 </form>
+				</div>
+			</div>
+
+
+		<div >
+			<ul class="visit-card">
+				<li class="customer-card card" ng-repeat="customer in customers">
+
+						<form ng-submit="saveCustomer($index)" ng-show="editAble($index)" class="info-edit">
+							<div class="input-group">
+								<span class="input-group-addon">First Name</span>
+								<input type="text" ng-model="editCustomer.first_name" class="form-control">
+							</div>
+
+							<div class="input-group">
+								<span class="input-group-addon">Last Name</span>
+								<input type="text" ng-model="editCustomer.last_name" class="form-control">
+							</div>
+
+							<div class="form-check form-check-inline">
+								<label class="form-check-label">
+									<input class="form-check-input" type="radio" ng-model="editCustomer.gender" value="Mr" >Mr
+								</label>
+							</div>
+
+							<div class="form-check form-check-inline">
+								<label class="form-check-label">
+									<input class="form-check-input" type="radio" ng-model="editCustomer.gender" value="Ms/Mrs" >Ms/Mrs
+								</label>
+							</div>
+
+
+
+							<div class="input-group">
+								<span class="input-group-addon">*Title</span>
+								<input type="text" ng-model="editCustomer.title" class="form-control">
+							</div>
+
+							<div class="input-group">
+								<span class="input-group-addon">Company</span>
+								<input type="text" ng-model="editCustomer.company" class="form-control">
+							</div>
+
+							<div class="submit-edit">
+								<button class="btn btn-primary" type="submit">Save</button>
+								<!-- <input type="submit" value="Save"> -->
+								<a href="" ng-click="cancelEdit()" >Cancel</a>
+							</div>
+
+						</form>
+
+						<div ng-hide="editAble($index)" class="info-display">
+							<h3 class="card-header"><span>{{customer.first_name}}</span> <span>{{customer.last_name}}</span></h3>
+							<div class="card-body d-flex flex-column">
+								<span class="info-display-content"><span class="text-muted">Gender:</span> {{customer.gender}}</span>
+								<span class="info-display-content"><span class="text-muted">Title:</span> {{customer.title}}</span>
+								<span class="info-display-content"><span class="text-muted">Company:</span> {{customer.company}}</span>
+								<div class="edit-btn">
+									<a href="#" ng-click="editCustomers($index)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+									<a href="#" ng-click="deleteCustomer($index)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+								</div>
+							</div>
+
+
+						</div>
+						<div class="clearfix">
+
+						</div>
+
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+
+<script src="lib/angular.min.js"></script>
+<script src="lib/jquery.min.js"></script>
+<script src="js/app.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+  </body>
+</body>
+</html>

@@ -1,0 +1,72 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.container {
+	margin: 0 auto;
+	width: 95%;
+	padding: 2em 1em;
+}
+
+button {
+
+}
+
+/*SHOW-EDITOR*/
+
+
+/*VISIT CARD*/
+ul.visit-card {
+	display: flex;
+	padding: 5em 0 0 5em;
+	width: 100%;
+	height: auto;
+	flex-direction; row;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	justify-content: flex-start;
+}
+
+li.customer-card {
+	list-style-type: none;
+	width: 25%;
+	border: 1px solid black;
+	height: 250px;
+	flex-basic: 50em;
+	margin-bottom: 2em;
+	margin-right: 2em;
+	display: inline-block;
+
+}
+
+.card-content {
+	display: flex;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.info-display {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.edit-btn {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.info-display-content {
+	font-size: 1.3em;
+}
+
+.edit-btn {
+	margin-top: .2em;
+	margin-right: .5em
+}
